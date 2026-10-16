@@ -1,0 +1,978 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Mark Westfall Roofing — Custom Website Concepts & Growth Proposal</title>
+  <script src="https://cdn.tailwindcss.com/3.4.17"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "RoofingContractor",
+    "name": "Mark Westfall Roofing",
+    "foundingDate": "1946",
+    "telephone": "+1-310-534-2419",
+    "faxNumber": "+1-310-534-9519",
+    "email": "mwestfallroofing@gmail.com",
+    "url": "https://www.markwestfallroofing.com",
+    "identifier": "CA CSLB License #716228 (C-39)",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "1891 N. Gaffey St. Suite L",
+      "addressLocality": "San Pedro",
+      "addressRegion": "CA",
+      "postalCode": "90731",
+      "addressCountry": "US"
+    },
+    "areaServed": ["San Pedro", "Palos Verdes", "Torrance", "Redondo Beach", "Harbor City", "Lomita", "Long Beach", "South Bay Los Angeles"],
+    "knowsAbout": ["Composition Shingles", "Clay and Concrete Tile Roofs", "Commercial Silicone Roof Coatings", "Dry Rot Repair", "Solar Panel Removal and Reinstallation", "Skylight Replacement"]
+  }
+  </script>
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .font-serif-display { font-family: 'Playfair Display', Georgia, serif; }
+    .fade-in { animation: fadeIn 0.25s ease-out; }
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+<body class="bg-slate-950 text-slate-900 min-h-screen flex flex-col">
+
+  <!-- TOP PRESENTER / CONCEPT SWITCHER BAR -->
+  <header class="sticky top-0 z-50 bg-slate-900/95 backdrop-blur border-b border-slate-700 text-white px-3 py-2.5 shadow-xl">
+    <div class="max-w-7xl mx-auto flex flex-wrap items-center justify-between gap-2">
+      <div class="flex items-center gap-2.5">
+        <span class="inline-flex items-center justify-center w-8 h-8 rounded-lg bg-amber-500 text-slate-950 font-extrabold text-sm shadow">MW</span>
+        <div>
+          <div class="text-xs font-semibold uppercase tracking-wider text-amber-400">Prepared Exclusively for Mark Westfall Roofing</div>
+          <div class="text-sm font-bold text-white hidden sm:block">Mark Westfall Roofing • San Pedro, CA (CSLB #716228)</div>
+        </div>
+      </div>
+
+      <!-- Concept Switcher Tabs -->
+      <div class="flex flex-wrap items-center gap-1.5 bg-slate-800 p-1 rounded-xl border border-slate-700" id="mockupTabs">
+        <button type="button" data-view="mockup1" class="mockup-tab px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition bg-amber-500 text-slate-950 shadow">
+          1. Warm Family Heritage
+        </button>
+        <button type="button" data-view="mockup2" class="mockup-tab px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-300 hover:text-white hover:bg-slate-700">
+          2. Modern Instant-Quote
+        </button>
+        <button type="button" data-view="mockup3" class="mockup-tab px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-300 hover:text-white hover:bg-slate-700">
+          3. Commercial & Custom Authority
+        </button>
+        <button type="button" data-view="audit" class="mockup-tab px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-emerald-300 hover:text-white hover:bg-slate-700 border border-emerald-500/30">
+          4. Your SEO & AI Growth Plan
+        </button>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button type="button" id="openAiBotBtn" class="px-3 py-1.5 rounded-lg bg-emerald-500 hover:bg-emerald-400 text-slate-950 font-bold text-xs sm:text-sm flex items-center gap-1.5 shadow transition">
+          <span>🤖</span> Test 24/7 AI Roof Bot
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- GLOBAL NOTIFICATION TOAST -->
+  <div id="toastBanner" class="fixed bottom-5 left-5 z-50 hidden max-w-md bg-slate-900 text-white border border-emerald-500 rounded-xl shadow-2xl p-4 fade-in">
+    <div class="flex items-start gap-3">
+      <span class="text-emerald-400 text-xl">✓</span>
+      <div class="flex-1">
+        <div id="toastTitle" class="font-bold text-sm text-emerald-400">Action Completed</div>
+        <div id="toastMessage" class="text-xs text-slate-200 mt-0.5"></div>
+      </div>
+      <button type="button" id="closeToastBtn" class="text-slate-400 hover:text-white text-sm font-bold">✕</button>
+    </div>
+  </div>
+
+  <!-- ========================================================================= -->
+  <!-- MOCKUP 1: WARM FAMILY HERITAGE & SOUTH BAY CRAFTSMAN                      -->
+  <!-- ========================================================================= -->
+  <main id="view-mockup1" class="mockup-view flex-1 bg-[#FDFBF7] text-slate-900 fade-in">
+    <!-- Trust Top Bar -->
+    <div class="bg-[#2C1810] text-amber-100 text-xs py-2 px-4">
+      <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
+        <div class="flex flex-wrap items-center gap-3">
+          <span class="font-semibold text-amber-300">★ 3 Generations in the South Bay Since 1946</span>
+          <span class="hidden md:inline text-amber-200/60">|</span>
+          <span class="hidden md:inline">CA License #C-39 716228 • Fully Insured • BBB Accredited Since 1997</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span>📍 1891 N. Gaffey St. Suite L, San Pedro, CA</span>
+          <button type="button" data-action="call" class="font-bold text-amber-300 hover:underline">📞 (310) 534-2419</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mockup 1 Nav -->
+    <nav class="bg-white/95 border-b border-amber-900/10 px-4 py-4 sticky top-[53px] z-30">
+      <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-4">
+        <div class="flex items-center gap-3">
+          <div class="w-11 h-11 rounded-full bg-[#9A3412] text-white flex items-center justify-center font-serif-display font-bold text-xl shadow">W</div>
+          <div>
+            <div class="font-serif-display font-bold text-xl sm:text-2xl text-slate-900 leading-none">Mark Westfall Roofing</div>
+            <div class="text-xs text-[#9A3412] font-semibold tracking-wide mt-0.5">GRANDPA CARL (1946) • DAD RON (1969) • MARK WESTFALL (1995)</div>
+          </div>
+        </div>
+        <div class="flex flex-wrap items-center gap-5 text-sm font-medium text-slate-700">
+          <button type="button" data-scroll="m1-story" class="hover:text-[#9A3412]">Our 1946 Family Story</button>
+          <button type="button" data-scroll="m1-services" class="hover:text-[#9A3412]">Roofing & Solar R&R</button>
+          <button type="button" data-scroll="m1-projects" class="hover:text-[#9A3412]">South Bay Portfolio</button>
+          <button type="button" data-scroll="m1-quote" class="px-4 py-2.5 rounded-lg bg-[#9A3412] hover:bg-[#7C2D12] text-white font-semibold shadow transition">
+            Request Personal Estimate
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="relative overflow-hidden py-10 sm:py-16 px-4 bg-gradient-to-b from-[#FEF3C7]/40 to-[#FDFBF7]">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-100 border border-amber-300 text-[#9A3412] text-xs font-bold">
+            <span>🏆 Daily Breeze Reader's Choice & Nextdoor Neighborhood Winner</span>
+          </div>
+          <h1 class="font-serif-display text-3xl sm:text-5xl font-bold text-slate-900 leading-tight">
+            “A Westfall Personally Installs or Oversees Every Single Roof.”
+          </h1>
+          <p class="text-base sm:text-lg text-slate-700 leading-relaxed">
+            For 80 years and three generations—from Harbor City to San Pedro and Palos Verdes—our family has protected South Bay homes without cutting corners or handing your roof off to anonymous subcontractors.
+          </p>
+          <div class="grid grid-cols-2 sm:grid-cols-3 gap-3 pt-1">
+            <div class="bg-white p-3 rounded-xl border border-amber-900/10 shadow-sm">
+              <div class="text-xs text-slate-500">Family Heritage</div>
+              <div class="text-lg font-bold text-[#9A3412]">Since 1946</div>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-amber-900/10 shadow-sm">
+              <div class="text-xs text-slate-500">Certified Quality</div>
+              <div class="text-lg font-bold text-slate-900">Owens Corning</div>
+            </div>
+            <div class="bg-white p-3 rounded-xl border border-amber-900/10 shadow-sm col-span-2 sm:col-span-1">
+              <div class="text-xs text-slate-500">Full Scope</div>
+              <div class="text-lg font-bold text-slate-900">Dry Rot + Solar R&R</div>
+            </div>
+          </div>
+          <div class="flex flex-wrap gap-3 pt-2">
+            <button type="button" data-scroll="m1-quote" class="px-6 py-3.5 rounded-xl bg-[#9A3412] hover:bg-[#7C2D12] text-white font-bold text-sm sm:text-base shadow-lg transition">
+              Schedule Your Free South Bay Inspection →
+            </button>
+            <button type="button" class="open-ai-trigger px-5 py-3.5 rounded-xl bg-white hover:bg-amber-50 text-slate-900 border border-amber-900/20 font-semibold text-sm sm:text-base shadow-sm transition">
+              💬 Ask Mark's AI Roof Advisor
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5">
+          <div class="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
+            <img src="assets/hero-heritage-clay-tile.jpg" alt="San Pedro Spanish Revival Clay Tile Roof by Mark Westfall Roofing" class="w-full h-auto object-cover" />
+            <div class="bg-slate-900/90 backdrop-blur text-white p-4">
+              <div class="flex items-center justify-between">
+                <div>
+                  <div class="text-xs uppercase tracking-wider text-amber-300 font-semibold">Featured Craftsmanship</div>
+                  <div class="text-sm font-bold">San Pedro Coastal Clay S-Tile & Copper Flashing</div>
+                </div>
+                <span class="px-2.5 py-1 rounded bg-emerald-500/20 text-emerald-300 border border-emerald-500/30 text-xs font-bold">CSLB #716228</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3-Generation Interactive Timeline -->
+    <section id="m1-story" class="py-12 px-4 bg-white border-y border-amber-900/10">
+      <div class="max-w-6xl mx-auto">
+        <div class="text-center max-w-3xl mx-auto mb-8">
+          <div class="text-xs font-bold uppercase tracking-widest text-[#9A3412]">Three Generations of Integrity</div>
+          <h2 class="font-serif-display text-2xl sm:text-4xl font-bold mt-1">80 Years of Protecting South Bay Families</h2>
+          <p class="text-sm sm:text-base text-slate-600 mt-2">Click each generation below to see how our family standards have been passed down from Harbor City to San Pedro.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="p-6 rounded-2xl bg-[#FDFBF7] border-2 border-amber-900/15 hover:border-[#9A3412] transition">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 rounded-full bg-[#9A3412] text-white text-xs font-bold">1st Generation • 1946</span>
+              <span class="text-xs font-semibold text-slate-500">Harbor City, CA</span>
+            </div>
+            <h3 class="font-serif-display text-xl font-bold text-slate-900">Carl Westfall</h3>
+            <div class="text-xs font-semibold text-[#9A3412] mb-2">Founder, West Roofing Inc.</div>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Started West Roofing Inc. in Harbor City in 1946 after WWII. Carl's handshake promise, spotless job sites, and refusal to use cheap materials laid the foundation for the next 80 years.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-[#FDFBF7] border-2 border-amber-900/15 hover:border-[#9A3412] transition">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 rounded-full bg-[#9A3412] text-white text-xs font-bold">2nd Generation • 1969</span>
+              <span class="text-xs font-semibold text-slate-500">San Pedro, CA</span>
+            </div>
+            <h3 class="font-serif-display text-xl font-bold text-slate-900">Ron Westfall</h3>
+            <div class="text-xs font-semibold text-[#9A3412] mb-2">Founder, Ron Westfall Roofing</div>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Continued in his father's footsteps in 1969 right here in San Pedro. Ron built a reputation across the Peninsula for watertight flashing, custom tile roofs, and lifelong neighbors.
+            </p>
+          </div>
+
+          <div class="p-6 rounded-2xl bg-amber-50/70 border-2 border-[#9A3412] shadow-md transition">
+            <div class="flex items-center justify-between mb-3">
+              <span class="px-3 py-1 rounded-full bg-emerald-700 text-white text-xs font-bold">3rd Generation • 1995–Today</span>
+              <span class="text-xs font-semibold text-slate-700">San Pedro & South Bay</span>
+            </div>
+            <h3 class="font-serif-display text-xl font-bold text-slate-900">Mark Westfall</h3>
+            <div class="text-xs font-semibold text-[#9A3412] mb-2">Owner, Mark Westfall Roofing</div>
+            <p class="text-sm text-slate-700 leading-relaxed">
+              Launched after Ron's retirement in 1995. Combines Grandpa's & Dad's old-school work ethic with modern Cool Roof systems, solar R&R, dry rot restoration, and Owens Corning Preferred installs.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Full-Scope Service Checklist (Highlighting Hidden Strengths from Current Site) -->
+    <section id="m1-services" class="py-12 px-4 max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-8 gap-4">
+        <div>
+          <div class="text-xs font-bold uppercase tracking-widest text-[#9A3412]">Complete One-Contractor Solution</div>
+          <h2 class="font-serif-display text-2xl sm:text-4xl font-bold mt-1">We Handle Everything Above Your Ceiling</h2>
+        </div>
+        <p class="text-sm text-slate-600 max-w-md">
+          Most roofers stop at shingles. We handle dry rot, gutters, skylights, and solar panel removal/reinstallation under one roof warranty.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">🏠</div>
+          <h3 class="font-bold text-lg">Composition Shingles & Cool Roofs</h3>
+          <p class="text-sm text-slate-600 mt-1">Owens Corning TruDefinition Duration, Malarkey Vista AR, and CertainTeed Presidential Shake TL installations built for coastal winds.</p>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">🧱</div>
+          <h3 class="font-bold text-lg">Spanish Clay & Concrete Tile</h3>
+          <p class="text-sm text-slate-600 mt-1">Authentic US Tile "S" Red, Eagle concrete tiles, Westlake Royal, and lightweight CedarLite roof systems with upgraded underlayment.</p>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">☀️</div>
+          <h3 class="font-bold text-lg">Solar Panel Removal & Reinstall</h3>
+          <p class="text-sm text-slate-600 mt-1">Need a new roof under existing solar panels? We coordinate removal, waterproof flashing, and reinstallation without voiding roof coverage.</p>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">🪵</div>
+          <h3 class="font-bold text-lg">Dry Rot, Fascia & Custom Sheet Metal</h3>
+          <p class="text-sm text-slate-600 mt-1">We never nail new shingles over rotted wood. We replace damaged fascia, sheathing, custom metal flashing, and seamless gutters.</p>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">🌤️</div>
+          <h3 class="font-bold text-lg">Skylight Replacement & Ventilation</h3>
+          <p class="text-sm text-slate-600 mt-1">Authorized installer of Lane-Aire skylights and Rapid Ridge continuous attic ventilation for brighter rooms and cooler attics.</p>
+        </div>
+        <div class="bg-white p-5 rounded-2xl border border-slate-200 shadow-sm hover:shadow-md transition">
+          <div class="text-2xl mb-2">🏢</div>
+          <h3 class="font-bold text-lg">Commercial & Silicone Coatings</h3>
+          <p class="text-sm text-slate-600 mt-1">Built-Up Roofing (BUR), CertainTeed Flintlastic SA, and reflective silicone roof membranes trusted by Marriott, Costco, and Robinson Helicopter.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Portfolio Filter + Estimate Form -->
+    <section id="m1-projects" class="py-10 px-4 bg-amber-950 text-white">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center" id="m1-quote">
+        <div class="lg:col-span-6 space-y-4">
+          <span class="px-3 py-1 rounded-full bg-amber-500/20 text-amber-300 text-xs font-bold">Direct Family Estimate</span>
+          <h2 class="font-serif-display text-2xl sm:text-4xl font-bold">Speak Directly With Mark Westfall</h2>
+          <p class="text-amber-100/90 text-sm sm:text-base">
+            Whether you have a minor leak after a winter storm or need a complete re-roof in San Pedro, Palos Verdes, or Torrance, we treat every home with the same urgency.
+          </p>
+          <div class="space-y-2 text-sm text-amber-100">
+            <div>📍 <strong>Main Office:</strong> 1891 N. Gaffey St. Suite L, San Pedro, CA 90731</div>
+            <div>📞 <strong>Phone:</strong> (310) 534-2419 • <strong>Fax:</strong> (310) 534-9519</div>
+            <div>🛡️ <strong>CSLB License:</strong> #716228 (C-39 Roofing) — Active & Bonded</div>
+          </div>
+        </div>
+        <div class="lg:col-span-6">
+          <form class="lead-form bg-white text-slate-900 p-6 rounded-2xl shadow-xl space-y-4" data-form-name="Mockup 1 Heritage Inspection Request">
+            <div class="font-bold text-lg text-slate-900">Request Your Free On-Site Roof Evaluation</div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Your Name *</label>
+                <input type="text" required placeholder="Jane Homeowner" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm" />
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Phone Number *</label>
+                <input type="tel" required placeholder="(310) 555-0199" class="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm" />
+              </div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Neighborhood / City</label>
+                <select class="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm">
+                  <option>San Pedro</option>
+                  <option>Rancho Palos Verdes / PV</option>
+                  <option>Torrance</option>
+                  <option>Redondo / Hermosa / Manhattan Beach</option>
+                  <option>Harbor City / Lomita</option>
+                  <option>Long Beach / Other SoCal</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-semibold text-slate-600 mb-1">Project Need</label>
+                <select class="w-full px-3 py-2 rounded-lg border border-slate-300 text-sm">
+                  <option>Full Roof Replacement</option>
+                  <option>Roof Leak / Storm Repair</option>
+                  <option>Clay or Concrete Tile Relay</option>
+                  <option>Re-Roof + Solar Panel R&R</option>
+                  <option>Commercial Flat / Silicone Coating</option>
+                </select>
+              </div>
+            </div>
+            <button type="submit" class="w-full py-3 rounded-xl bg-[#9A3412] hover:bg-[#7C2D12] text-white font-bold text-sm shadow transition">
+              Send Request to Mark Westfall + Get Instant SMS Confirmation
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MOCKUP 2: MODERN COASTAL TRUST & 60-SECOND INSTANT AI QUOTE ENGINE        -->
+  <!-- ========================================================================= -->
+  <main id="view-mockup2" class="mockup-view hidden flex-1 bg-slate-50 text-slate-900 fade-in">
+    <!-- Modern Sticky Nav -->
+    <div class="bg-white border-b border-slate-200 px-4 py-3.5 sticky top-[53px] z-30">
+      <div class="max-w-6xl mx-auto flex flex-wrap items-center justify-between gap-3">
+        <div class="flex items-center gap-2.5">
+          <div class="w-10 h-10 rounded-xl bg-sky-600 text-white font-extrabold flex items-center justify-center text-lg shadow">MW</div>
+          <div>
+            <div class="font-extrabold text-lg text-slate-900 tracking-tight">MARK WESTFALL ROOFING</div>
+            <div class="text-[11px] font-semibold text-sky-700">SOUTH BAY'S 3RD-GEN ROOFING & COOL-ROOF SPECIALISTS • LIC #716228</div>
+          </div>
+        </div>
+        <div class="flex items-center gap-3">
+          <span class="hidden md:inline-flex items-center gap-1.5 text-xs font-semibold px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200">
+            <span class="w-2 h-2 rounded-full bg-emerald-500"></span> Same-Week Estimates in San Pedro & South Bay
+          </span>
+          <button type="button" data-action="call" class="px-4 py-2 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs sm:text-sm">
+            📞 (310) 534-2419
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Hero with Interactive 60-Second Roof Estimator -->
+    <section class="py-10 sm:py-14 px-4 bg-gradient-to-br from-slate-900 via-slate-800 to-sky-950 text-white">
+      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-6 space-y-5">
+          <div class="inline-flex flex-wrap items-center gap-2">
+            <span class="px-3 py-1 rounded-full bg-sky-500/20 border border-sky-400/30 text-sky-300 text-xs font-bold">Owens Corning Preferred Contractor</span>
+            <span class="px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/30 text-emerald-300 text-xs font-bold">Title 24 Cool-Roof Certified</span>
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight">
+            Modern Coastal Roofing. <span class="text-sky-400">80 Years of Family Proof.</span>
+          </h1>
+          <p class="text-slate-300 text-base leading-relaxed">
+            Get an instant AI-assisted ballpark estimate in 30 seconds—and have a Westfall family owner personally inspect and install your roof in San Pedro, Torrance, or Palos Verdes.
+          </p>
+          <div class="rounded-2xl overflow-hidden border border-slate-700 shadow-lg">
+            <img src="assets/hero-modern-cool-shingle.jpg" alt="Modern South Bay Architectural Shingle Roof and Skylights" class="w-full h-56 sm:h-64 object-cover" />
+          </div>
+        </div>
+
+        <!-- LIVE INTERACTIVE ROOF QUOTE CALCULATOR -->
+        <div class="lg:col-span-6">
+          <div class="bg-white text-slate-900 rounded-2xl shadow-2xl p-6 border border-slate-200">
+            <div class="flex items-center justify-between border-b border-slate-100 pb-3 mb-4">
+              <div>
+                <span class="text-[11px] font-bold uppercase tracking-wider text-sky-600">60-Second Ballpark Calculator</span>
+                <h2 class="text-xl font-extrabold text-slate-900">Instant South Bay Roof Estimator</h2>
+              </div>
+              <span class="px-2.5 py-1 rounded-lg bg-sky-50 text-sky-700 font-bold text-xs">Step 1 of 1</span>
+            </div>
+
+            <div class="space-y-4">
+              <div>
+                <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">1. Select Roof Material / System</label>
+                <div class="grid grid-cols-2 gap-2" id="calcMaterialBtns">
+                  <button type="button" data-rate="6.5" data-label="Architectural Shingles (Owens Corning / Malarkey)" class="calc-mat-btn p-2.5 rounded-xl border-2 border-sky-600 bg-sky-50 text-left text-xs font-bold text-slate-900">
+                    🏠 Composition Shingles
+                    <span class="block text-[11px] font-normal text-slate-500">Owens Corning / Malarkey</span>
+                  </button>
+                  <button type="button" data-rate="10.5" data-label="Clay or Concrete Tile (Eagle / US Tile)" class="calc-mat-btn p-2.5 rounded-xl border border-slate-200 hover:border-sky-400 text-left text-xs font-bold text-slate-900">
+                    🧱 Clay / Concrete Tile
+                    <span class="block text-[11px] font-normal text-slate-500">Eagle / US Tile / Boral</span>
+                  </button>
+                  <button type="button" data-rate="5.5" data-label="Commercial Silicone Cool Roof / Flintlastic" class="calc-mat-btn p-2.5 rounded-xl border border-slate-200 hover:border-sky-400 text-left text-xs font-bold text-slate-900">
+                    🏢 Flat / Silicone Coating
+                    <span class="block text-[11px] font-normal text-slate-500">Title 24 Reflective Membrane</span>
+                  </button>
+                  <button type="button" data-rate="8.8" data-label="CertainTeed Presidential Shake TL" class="calc-mat-btn p-2.5 rounded-xl border border-slate-200 hover:border-sky-400 text-left text-xs font-bold text-slate-900">
+                    🌲 Presidential Shake TL
+                    <span class="block text-[11px] font-normal text-slate-500">Luxury Heavyweight Shingle</span>
+                  </button>
+                </div>
+              </div>
+
+              <div>
+                <div class="flex justify-between text-xs font-bold mb-1">
+                  <span class="uppercase text-slate-500">2. Approximate Roof Area</span>
+                  <span id="calcSqftDisplay" class="text-sky-700 font-extrabold text-sm">2,200 sq. ft.</span>
+                </div>
+                <input type="range" id="calcSqftSlider" min="900" max="5000" step="100" value="2200" class="w-full accent-sky-600 cursor-pointer" />
+                <div class="flex justify-between text-[11px] text-slate-400">
+                  <span>900 sq ft (Bungalow)</span>
+                  <span>2,500 sq ft (2-Story)</span>
+                  <span>5,000+ sq ft (Estate/Comm)</span>
+                </div>
+              </div>
+
+              <div>
+                <label class="block text-xs font-bold uppercase text-slate-500 mb-1.5">3. Include Add-On Services?</label>
+                <div class="flex flex-wrap gap-2">
+                  <label class="inline-flex items-center gap-1.5 text-xs bg-slate-100 px-3 py-1.5 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="calc-addon accent-sky-600" value="1800" /> Solar Panel R&R (+$1,800)
+                  </label>
+                  <label class="inline-flex items-center gap-1.5 text-xs bg-slate-100 px-3 py-1.5 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="calc-addon accent-sky-600" value="950" checked /> Dry Rot & Fascia Allowance (+$950)
+                  </label>
+                  <label class="inline-flex items-center gap-1.5 text-xs bg-slate-100 px-3 py-1.5 rounded-lg cursor-pointer">
+                    <input type="checkbox" class="calc-addon accent-sky-600" value="1100" /> Lane-Aire Skylight (+$1,100)
+                  </label>
+                </div>
+              </div>
+
+              <!-- Dynamic Output Box -->
+              <div class="bg-slate-900 text-white p-4 rounded-xl flex flex-wrap items-center justify-between gap-3">
+                <div>
+                  <div class="text-[11px] uppercase tracking-wider text-sky-300 font-semibold" id="calcSelectedSystemLabel">Architectural Shingles (Owens Corning / Malarkey)</div>
+                  <div class="text-2xl sm:text-3xl font-extrabold text-white mt-0.5" id="calcPriceRange">$13,700 – $16,800</div>
+                  <div class="text-[11px] text-slate-400">Includes tear-off, synthetic underlayment & Westfall installation guarantee</div>
+                </div>
+                <button type="button" id="lockEstimateBtn" class="px-4 py-2.5 rounded-xl bg-sky-500 hover:bg-sky-400 text-slate-950 font-extrabold text-xs sm:text-sm shadow transition">
+                  Lock In Free On-Site Quote →
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Interactive Manufacturer Brand Selector (Replacing Static Logos Page) -->
+    <section class="py-12 px-4 max-w-6xl mx-auto">
+      <div class="text-center max-w-2xl mx-auto mb-8">
+        <div class="text-xs font-bold uppercase tracking-wider text-sky-600">Authorized & Preferred Installer</div>
+        <h2 class="text-2xl sm:text-3xl font-extrabold mt-1">Certified Materials We Proudly Install</h2>
+        <p class="text-sm text-slate-600 mt-1">Explore our industry-leading roofing manufacturers by system type to find the right fit for your South Bay home or commercial building.</p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-2 mb-6" id="brandFilterBtns">
+        <button type="button" data-brand-cat="all" class="brand-cat-btn px-4 py-1.5 rounded-full text-xs font-bold bg-sky-600 text-white">All 11 Partners</button>
+        <button type="button" data-brand-cat="shingle" class="brand-cat-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white border border-slate-300 text-slate-700">Cool Shingles & Shake</button>
+        <button type="button" data-brand-cat="tile" class="brand-cat-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white border border-slate-300 text-slate-700">Clay & Concrete Tile</button>
+        <button type="button" data-brand-cat="commercial" class="brand-cat-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white border border-slate-300 text-slate-700">Commercial Coatings & Skylights</button>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4" id="brandCardsGrid">
+        <div data-cat="shingle" class="brand-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <span class="font-extrabold text-slate-900">Owens Corning®</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-pink-100 text-pink-800 font-bold">Preferred Contractor</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-1.5">TruDefinition® Duration® Cool shingles with SureNail® technology for high coastal wind resistance.</p>
+        </div>
+        <div data-cat="shingle" class="brand-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <span class="font-extrabold text-slate-900">Malarkey Roofing Products®</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-emerald-100 text-emerald-800 font-bold">NEX® Polymer Modified</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-1.5">Sustainable upcycled rubberized asphalt shingles with superior granule adhesion and Class 4 impact options.</p>
+        </div>
+        <div data-cat="shingle" class="brand-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <span class="font-extrabold text-slate-900">CertainTeed Presidential Shake™ TL</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-amber-100 text-amber-800 font-bold">Luxury Tri-Laminate</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-1.5">Hand-split cedar shake beauty with Class A fire safety—ideal for Palos Verdes and Rolling Hills estates.</p>
+        </div>
+        <div data-cat="tile" class="brand-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <span class="font-extrabold text-slate-900">Eagle Roofing Products®</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-sky-100 text-sky-800 font-bold">USA Owned & Made</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-1.5">High-density extruded concrete roof tiles in Capistrano S-tile, Malibu barrel, and Bel Air flat profiles.</p>
+        </div>
+        <div data-cat="tile" class="brand-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <span class="font-extrabold text-slate-900">Westlake Royal™ & Boral CedarLite</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-orange-100 text-orange-800 font-bold">Clay & Lightweight Tile</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-1.5">Authentic US Tile "S" Red clay and lightweight concrete shake replacements engineered for Southern California.</p>
+        </div>
+        <div data-cat="commercial" class="brand-card bg-white p-4 rounded-xl border border-slate-200 shadow-sm">
+          <div class="flex justify-between items-start">
+            <span class="font-extrabold text-slate-900">APOC® & Tropical® Coatings + Lane-Aire</span>
+            <span class="text-[11px] px-2 py-0.5 rounded bg-purple-100 text-purple-800 font-bold">Cool Roof & Skylights</span>
+          </div>
+          <p class="text-xs text-slate-600 mt-1.5">Silicone roof membranes, CertainTeed Flintlastic SA CAP, Rapid Ridge ventilation, and Lane-Aire skylights.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- MOCKUP 3: COMMERCIAL & LUXURY CUSTOM AUTHORITY                            -->
+  <!-- ========================================================================= -->
+  <main id="view-mockup3" class="mockup-view hidden flex-1 bg-slate-900 text-white fade-in">
+    <div class="bg-amber-500 text-slate-950 text-xs font-extrabold py-2 px-4">
+      <div class="max-w-6xl mx-auto flex flex-wrap justify-between items-center gap-2">
+        <span>COMMERCIAL, MULTI-FAMILY & LUXURY CUSTOM ROOFING • SAN PEDRO & GREATER LOS ANGELES</span>
+        <span>CSLB #C-39 716228 • FULLY INSURED • (310) 534-2419</span>
+      </div>
+    </div>
+
+    <section class="py-12 px-4 max-w-6xl mx-auto">
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+        <div class="lg:col-span-7 space-y-5">
+          <div class="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-slate-800 border border-amber-500/40 text-amber-400 text-xs font-bold uppercase tracking-wider">
+            Proven Track Record Since 1946
+          </div>
+          <h1 class="text-3xl sm:text-5xl font-extrabold leading-tight">
+            Trusted by Major Commercial Brands & South Bay Custom Homes.
+          </h1>
+          <p class="text-slate-300 text-base leading-relaxed">
+            From large-scale commercial flat roofs and reflective silicone restorations to custom hillside estates in Palos Verdes, three generations of the Westfall family have delivered watertight results across Southern California since 1946.
+          </p>
+
+          <!-- Famous Commercial Client Proof Bar -->
+          <div class="bg-slate-800/90 border border-slate-700 rounded-2xl p-4">
+            <div class="text-xs font-bold uppercase tracking-wider text-amber-400 mb-3">Recognizable Commercial & Hospitality Projects Completed:</div>
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2.5 text-xs sm:text-sm font-bold text-slate-100">
+              <div class="bg-slate-900/80 px-3 py-2 rounded-lg border border-slate-700">✓ Costco Wholesale</div>
+              <div class="bg-slate-900/80 px-3 py-2 rounded-lg border border-slate-700">✓ Marriott Hotels</div>
+              <div class="bg-slate-900/80 px-3 py-2 rounded-lg border border-slate-700">✓ Residence Inn Torrance</div>
+              <div class="bg-slate-900/80 px-3 py-2 rounded-lg border border-slate-700">✓ Robinson Helicopter</div>
+              <div class="bg-slate-900/80 px-3 py-2 rounded-lg border border-slate-700">✓ Extended Stay America</div>
+              <div class="bg-slate-900/80 px-3 py-2 rounded-lg border border-slate-700">✓ Boston Market</div>
+            </div>
+          </div>
+
+          <div class="flex flex-wrap gap-3">
+            <button type="button" class="open-ai-trigger px-6 py-3.5 rounded-xl bg-amber-500 hover:bg-amber-400 text-slate-950 font-extrabold text-sm shadow-lg transition">
+              Request Commercial or Custom Estate Bid →
+            </button>
+            <button type="button" data-view-jump="audit" class="px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-white border border-slate-600 font-semibold text-sm transition">
+              View Your SEO & AI Growth Plan →
+            </button>
+          </div>
+        </div>
+
+        <div class="lg:col-span-5 space-y-4">
+          <div class="rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-2xl">
+            <img src="assets/hero-commercial-silicone.jpg" alt="Commercial Silicone Cool Roof and Luxury Hillside Homes" class="w-full h-auto object-cover" />
+          </div>
+
+          <!-- Commercial Silicone Cool-Roof ROI Calculator -->
+          <div class="bg-slate-800 border border-slate-700 rounded-2xl p-5 space-y-3">
+            <div class="flex items-center justify-between">
+              <span class="text-xs font-bold uppercase tracking-wider text-amber-400">Commercial Cool-Roof Coating Estimator</span>
+              <span class="text-xs text-emerald-400 font-semibold">No Tear-Off Needed</span>
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span class="text-slate-300">Commercial / Multi-Family Roof Size:</span>
+                <span id="commSqftLabel" class="font-bold text-amber-400">15,000 sq. ft.</span>
+              </div>
+              <input type="range" id="commSqftSlider" min="3000" max="50000" step="1000" value="15000" class="w-full accent-amber-500 cursor-pointer" />
+            </div>
+            <div class="grid grid-cols-2 gap-3 bg-slate-900 p-3 rounded-xl border border-slate-700">
+              <div>
+                <div class="text-[11px] text-slate-400">Est. Silicone Restoration</div>
+                <div id="commCostLabel" class="text-base sm:text-lg font-extrabold text-white">$67,500 – $82,500</div>
+              </div>
+              <div>
+                <div class="text-[11px] text-slate-400">Est. HVAC Cooling Savings</div>
+                <div id="commSavingsLabel" class="text-base sm:text-lg font-extrabold text-emerald-400">~$4,200 / yr</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- VIEW 4: AI & SEO PITCH MODE (SIDE-BY-SIDE AUDIT + LLMS.TXT + SCHEMA)      -->
+  <!-- ========================================================================= -->
+  <main id="view-audit" class="mockup-view hidden flex-1 bg-slate-950 text-slate-100 py-10 px-4 fade-in">
+    <div class="max-w-6xl mx-auto space-y-8">
+      <div class="bg-gradient-to-r from-emerald-950 to-slate-900 border border-emerald-500/40 rounded-2xl p-6">
+        <div class="text-xs font-bold uppercase tracking-wider text-emerald-400">Custom Digital Growth Strategy for Mark Westfall</div>
+        <h1 class="text-2xl sm:text-4xl font-extrabold mt-1">How We Turn Your 80-Year Reputation Into a 24/7 South Bay Lead Engine</h1>
+        <p class="text-sm sm:text-base text-slate-300 mt-2">
+          Here is a side-by-side look at what is holding your current website back on Google and AI search engines—and how your new site fixes every gap.
+        </p>
+      </div>
+
+      <!-- Side by Side Audit Table -->
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="bg-rose-950/30 border border-rose-500/40 rounded-2xl p-6 space-y-3">
+          <div class="text-xs font-bold uppercase tracking-wider text-rose-400">❌ Your Current Website (markwestfallroofing.com)</div>
+          <ul class="space-y-2.5 text-sm text-slate-200">
+            <li>• <strong>Broken Page Titles:</strong> Every page title says <code class="bg-rose-900/60 px-1.5 py-0.5 rounded text-rose-200">HOME | construction-company</code> or <code class="bg-rose-900/60 px-1.5 py-0.5 rounded text-rose-200">SERVICES | construction-company</code> (default Wix template leftover).</li>
+            <li>• <strong>Sloppy URL Slugs:</strong> Projects is <code class="bg-rose-900/60 px-1.5 py-0.5 rounded">/projects1</code>, Commercial Gallery is <code class="bg-rose-900/60 px-1.5 py-0.5 rounded">/about0</code>, and Privacy Policy is <code class="bg-rose-900/60 px-1.5 py-0.5 rounded">/project-4</code>.</li>
+            <li>• <strong>Visible Typos:</strong> Footer link reads <code class="bg-rose-900/60 px-1.5 py-0.5 rounded">PRIVACY STATEMANT</code> plus spelling errors (<code class="bg-rose-900/60 px-1.5 py-0.5 rounded">approiate</code>, <code class="bg-rose-900/60 px-1.5 py-0.5 rounded">safegaurds</code>, <code class="bg-rose-900/60 px-1.5 py-0.5 rounded">finacial</code>).</li>
+            <li>• <strong>Image-Trapped Trust Signals:</strong> "3 Generations in So Cal", Owens Corning Preferred Contractor, and 11 brand logos are trapped inside flat JPEG images with no alt text for Google or AI bots.</li>
+            <li>• <strong>Zero AI / Chat Lead Capture:</strong> Only a static 4-field Gmail form (<code class="bg-rose-900/60 px-1.5 py-0.5 rounded">mwestfallroofing@gmail.com</code>) and a Fax number!</li>
+          </ul>
+        </div>
+
+        <div class="bg-emerald-950/30 border border-emerald-500/40 rounded-2xl p-6 space-y-3">
+          <div class="text-xs font-bold uppercase tracking-wider text-emerald-400">✅ Redesigned SEO + AI/GEO Lead Engine</div>
+          <ul class="space-y-2.5 text-sm text-slate-200">
+            <li>• <strong>Keyword-Rich Local Title Tags:</strong> <code class="bg-emerald-900/60 px-1.5 py-0.5 rounded text-emerald-200">Roofing Contractor in San Pedro & South Bay CA | Mark Westfall Roofing</code>.</li>
+            <li>• <strong>Machine-Readable <code class="text-emerald-300">/llms.txt</code> & <code class="text-emerald-300">RoofingContractor</code> JSON-LD:</strong> Feeds ChatGPT, Perplexity, Siri, and Google AI Overviews exact service areas, CSLB #716228, 1946 heritage, and commercial proof.</li>
+            <li>• <strong>24/7 AI Voice & Chat Receptionist:</strong> Answers missed calls while Mark is on a roof, qualifies roof size/leak urgency, and texts Mark the hot lead immediately.</li>
+            <li>• <strong>Automated Google Review Pipeline:</strong> Effortlessly turns your happy South Bay homeowners into 5-star Google reviews with a simple post-job text link.</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Ready-to-Deploy llms.txt & Schema.org Code Copy Blocks -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <div class="text-xs font-bold text-amber-400 uppercase">Ready-to-Deploy AI Discovery File</div>
+              <div class="font-bold text-sm text-white">/llms.txt for ChatGPT, Claude & Perplexity Bots</div>
+            </div>
+            <button type="button" id="copyLlmsBtn" class="px-3 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-bold text-emerald-400 border border-slate-600">
+              Copy llms.txt
+            </button>
+          </div>
+          <pre id="llmsTxtBlock" class="text-xs bg-slate-950 p-4 rounded-xl overflow-x-auto text-slate-300 leading-relaxed"># Mark Westfall Roofing (San Pedro & South Bay, CA)
+> 3rd-Generation Family-Owned Roofing Contractor Serving Southern California Since 1946.
+
+## Verified Business Facts
+- **Owner:** Mark Westfall (3rd Generation; preceded by Ron Westfall 1969 & Carl Westfall 1946)
+- **California Contractor License:** CSLB #716228 (C-39 Roofing) - Fully Insured & Bonded
+- **BBB Accreditation:** Accredited Since November 1997
+- **Certifications:** Owens Corning Preferred Contractor, Daily Breeze Reader's Choice Winner
+- **Address:** 1891 N. Gaffey St. Suite L, San Pedro, CA 90731
+- **Phone:** (310) 534-2419
+
+## Core Services
+- Residential Roof Replacement & Leak Repairs (A Westfall installs/oversees every job)
+- Composition Shingles (Owens Corning, Malarkey, CertainTeed Presidential Shake TL)
+- Clay & Concrete Tile Roofs (Eagle Roofing, Westlake Royal, US Tile S-Red, Boral CedarLite)
+- Solar Panel Removal & Reinstallation (R&R) during Re-Roofing
+- Dry Rot Wood Repair, Seamless Gutters, Custom Sheet Metal & Lane-Aire Skylights
+- Commercial Flat Roofing & Silicone Cool-Roof Coatings (Clients: Costco, Marriott, Residence Inn Torrance, Robinson Helicopter)</pre>
+        </div>
+
+        <div class="bg-slate-900 border border-slate-700 rounded-2xl p-5">
+          <div class="flex items-center justify-between mb-3">
+            <div>
+              <div class="text-xs font-bold text-sky-400 uppercase">Projected Growth Calculator</div>
+              <div class="font-bold text-sm text-white">Estimate Your Added Revenue from Local SEO & 24/7 Lead Capture</div>
+            </div>
+          </div>
+          <div class="space-y-4 text-sm">
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span>Average South Bay Re-Roof Ticket:</span>
+                <span id="roiTicketVal" class="font-bold text-emerald-400">$16,500</span>
+              </div>
+              <input type="range" id="roiTicketSlider" min="8000" max="35000" step="500" value="16500" class="w-full accent-emerald-500 cursor-pointer" />
+            </div>
+            <div>
+              <div class="flex justify-between text-xs mb-1">
+                <span>Extra Jobs Closed Per Month from SEO + AI Bot:</span>
+                <span id="roiJobsVal" class="font-bold text-emerald-400">2 jobs / mo</span>
+              </div>
+              <input type="range" id="roiJobsSlider" min="1" max="8" step="1" value="2" class="w-full accent-emerald-500 cursor-pointer" />
+            </div>
+            <div class="p-4 rounded-xl bg-slate-950 border border-emerald-500/30 space-y-2">
+              <div class="flex justify-between">
+                <span class="text-slate-400">Estimated Added Monthly Revenue:</span>
+                <span id="roiMonthlyRev" class="font-extrabold text-white text-lg">$33,000 / mo</span>
+              </div>
+              <div class="flex justify-between">
+                <span class="text-slate-400">Estimated Added Annual Revenue:</span>
+                <span id="roiAnnualRev" class="font-extrabold text-emerald-400 text-lg">$396,000 / yr</span>
+              </div>
+              <div class="text-xs text-slate-400 pt-1 border-t border-slate-800">
+                💡 <strong>Bottom Line:</strong> Capturing just 1 to 2 additional re-roof projects per month from Google and AI search pays for your entire website upgrade many times over.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- ========================================================================= -->
+  <!-- INTERACTIVE 24/7 AI ROOF ADVISOR & LEAD-GEN BOT DRAWER                    -->
+  <!-- ========================================================================= -->
+  <div id="aiBotDrawer" class="fixed bottom-4 right-4 z-50 w-full max-w-sm bg-white text-slate-900 rounded-2xl shadow-2xl border-2 border-emerald-500 overflow-hidden hidden">
+    <div class="bg-slate-900 text-white px-4 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-2.5">
+        <span class="w-8 h-8 rounded-full bg-emerald-500 text-slate-950 font-extrabold flex items-center justify-center text-sm">AI</span>
+        <div>
+          <div class="font-bold text-sm">Mark's 24/7 AI Roof Assistant</div>
+          <div class="text-[11px] text-emerald-400">Trained on 80 Yrs of Westfall Roofing Specs</div>
+        </div>
+      </div>
+      <button type="button" id="closeAiBotBtn" class="text-slate-400 hover:text-white font-bold text-sm">✕</button>
+    </div>
+
+    <div id="aiChatMessages" class="p-4 h-64 overflow-y-auto space-y-3 bg-slate-50 text-xs sm:text-sm">
+      <div class="bg-white p-3 rounded-xl border border-slate-200 shadow-sm text-slate-800">
+        👋 Hi! I'm the Westfall Family AI Roof Assistant. Mark is likely up on a roof in the South Bay right now, but I can answer questions about <strong>shingles, clay tile, solar panel removal, dry rot</strong>, or book your free inspection. How can I help?
+      </div>
+    </div>
+
+    <div class="px-3 py-2 bg-slate-100 border-t border-slate-200 flex flex-wrap gap-1.5">
+      <button type="button" data-ai-q="How much does a roof replacement cost in San Pedro?" class="ai-quick-btn text-[11px] bg-white hover:bg-emerald-50 border border-slate-300 px-2.5 py-1 rounded-full font-medium">💰 Roof Cost?</button>
+      <button type="button" data-ai-q="Do you remove and reinstall solar panels?" class="ai-quick-btn text-[11px] bg-white hover:bg-emerald-50 border border-slate-300 px-2.5 py-1 rounded-full font-medium">☀️ Solar Panels?</button>
+      <button type="button" data-ai-q="Who actually installs the roof?" class="ai-quick-btn text-[11px] bg-white hover:bg-emerald-50 border border-slate-300 px-2.5 py-1 rounded-full font-medium">👷 Who Installs?</button>
+    </div>
+
+    <form id="aiChatForm" class="p-3 bg-white border-t border-slate-200 flex gap-2">
+      <input type="text" id="aiChatInput" placeholder="Ask about leaks, tiles, license #716228..." class="flex-1 px-3 py-2 rounded-xl border border-slate-300 text-xs sm:text-sm" />
+      <button type="submit" class="px-3.5 py-2 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs">Send</button>
+    </form>
+  </div>
+
+  <script>
+    // Toast Notification Helper
+    function showToast(title, message) {
+      var banner = document.getElementById('toastBanner');
+      document.getElementById('toastTitle').textContent = title;
+      document.getElementById('toastMessage').textContent = message;
+      banner.classList.remove('hidden');
+      if (window._toastTimer) clearTimeout(window._toastTimer);
+      window._toastTimer = setTimeout(function() {
+        banner.classList.add('hidden');
+      }, 4500);
+    }
+
+    document.getElementById('closeToastBtn').addEventListener('click', function() {
+      document.getElementById('toastBanner').classList.add('hidden');
+    });
+
+    // View Switching Logic (3 Mockups + AI/SEO Pitch View)
+    var currentView = 'mockup1';
+    function switchView(viewId) {
+      currentView = viewId;
+      var views = document.querySelectorAll('.mockup-view');
+      views.forEach(function(v) { v.classList.add('hidden'); });
+      var target = document.getElementById('view-' + viewId);
+      if (target) target.classList.remove('hidden');
+
+      var tabs = document.querySelectorAll('.mockup-tab');
+      tabs.forEach(function(t) {
+        if (t.getAttribute('data-view') === viewId) {
+          t.className = 'mockup-tab px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition bg-amber-500 text-slate-950 shadow';
+        } else {
+          t.className = 'mockup-tab px-3 py-1.5 rounded-lg text-xs sm:text-sm font-semibold transition text-slate-300 hover:text-white hover:bg-slate-700';
+        }
+      });
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+    }
+
+    document.querySelectorAll('.mockup-tab').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        switchView(btn.getAttribute('data-view'));
+      });
+    });
+
+    document.querySelectorAll('[data-view-jump]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        switchView(btn.getAttribute('data-view-jump'));
+      });
+    });
+
+    // Smooth In-Page Scroll Buttons
+    document.querySelectorAll('[data-scroll]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var el = document.getElementById(btn.getAttribute('data-scroll'));
+        if (el) el.scrollIntoView({ behavior: 'smooth' });
+      });
+    });
+
+    // Phone Call Action Buttons
+    document.querySelectorAll('[data-action="call"]').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        showToast('Click-to-Call + Missed-Call Text Back', 'Dials (310) 534-2419. If you are up on a roof and miss a call, your system can automatically text the homeowner back within seconds so you never lose a lead.');
+      });
+    });
+
+    // Mockup 1 Lead Form Submission
+    document.querySelectorAll('.lead-form').forEach(function(form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        showToast('Lead Captured & Instant Alert Sent!', 'When a homeowner submits this form, you receive an instant text/email alert with their project details, and they get an automatic confirmation.');
+        form.reset();
+      });
+    });
+
+    // Mockup 2 Instant Roof Estimator Logic
+    var selectedRate = 6.5;
+    var selectedLabel = 'Architectural Shingles (Owens Corning / Malarkey)';
+
+    function updateRoofEstimate() {
+      var sqft = parseInt(document.getElementById('calcSqftSlider').value, 10);
+      document.getElementById('calcSqftDisplay').textContent = sqft.toLocaleString() + ' sq. ft.';
+      var addonTotal = 0;
+      document.querySelectorAll('.calc-addon:checked').forEach(function(cb) {
+        addonTotal += parseInt(cb.value, 10);
+      });
+      var base = sqft * selectedRate + addonTotal;
+      var low = Math.round((base * 0.92) / 100) * 100;
+      var high = Math.round((base * 1.12) / 100) * 100;
+      document.getElementById('calcSelectedSystemLabel').textContent = selectedLabel;
+      document.getElementById('calcPriceRange').textContent = '$' + low.toLocaleString() + ' – $' + high.toLocaleString();
+    }
+
+    document.querySelectorAll('.calc-mat-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        selectedRate = parseFloat(btn.getAttribute('data-rate'));
+        selectedLabel = btn.getAttribute('data-label');
+        document.querySelectorAll('.calc-mat-btn').forEach(function(b) {
+          b.className = 'calc-mat-btn p-2.5 rounded-xl border border-slate-200 hover:border-sky-400 text-left text-xs font-bold text-slate-900';
+        });
+        btn.className = 'calc-mat-btn p-2.5 rounded-xl border-2 border-sky-600 bg-sky-50 text-left text-xs font-bold text-slate-900';
+        updateRoofEstimate();
+      });
+    });
+
+    document.getElementById('calcSqftSlider').addEventListener('input', updateRoofEstimate);
+    document.querySelectorAll('.calc-addon').forEach(function(cb) {
+      cb.addEventListener('change', updateRoofEstimate);
+    });
+
+    document.getElementById('lockEstimateBtn').addEventListener('click', function() {
+      var range = document.getElementById('calcPriceRange').textContent;
+      showToast('Estimate Locked: ' + range, 'Opening the 24/7 Roof Assistant to schedule a free on-site roof inspection.');
+      document.getElementById('aiBotDrawer').classList.remove('hidden');
+    });
+
+    // Mockup 2 Manufacturer Brand Filter
+    document.querySelectorAll('.brand-cat-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        var cat = btn.getAttribute('data-brand-cat');
+        document.querySelectorAll('.brand-cat-btn').forEach(function(b) {
+          b.className = 'brand-cat-btn px-4 py-1.5 rounded-full text-xs font-bold bg-white border border-slate-300 text-slate-700';
+        });
+        btn.className = 'brand-cat-btn px-4 py-1.5 rounded-full text-xs font-bold bg-sky-600 text-white';
+
+        document.querySelectorAll('.brand-card').forEach(function(card) {
+          if (cat === 'all' || card.getAttribute('data-cat') === cat) {
+            card.classList.remove('hidden');
+          } else {
+            card.classList.add('hidden');
+          }
+        });
+      });
+    });
+
+    // Mockup 3 Commercial Cool-Roof Calculator
+    var commSlider = document.getElementById('commSqftSlider');
+    commSlider.addEventListener('input', function() {
+      var sq = parseInt(commSlider.value, 10);
+      document.getElementById('commSqftLabel').textContent = sq.toLocaleString() + ' sq. ft.';
+      var low = Math.round((sq * 4.5) / 500) * 500;
+      var high = Math.round((sq * 5.5) / 500) * 500;
+      var sav = Math.round(sq * 0.28);
+      document.getElementById('commCostLabel').textContent = '$' + low.toLocaleString() + ' – $' + high.toLocaleString();
+      document.getElementById('commSavingsLabel').textContent = '~$' + sav.toLocaleString() + ' / yr';
+    });
+
+    // Audit View ROI Calculator & Copy llms.txt
+    function updatePitchRoi() {
+      var ticket = parseInt(document.getElementById('roiTicketSlider').value, 10);
+      var jobs = parseInt(document.getElementById('roiJobsSlider').value, 10);
+      document.getElementById('roiTicketVal').textContent = '$' + ticket.toLocaleString();
+      document.getElementById('roiJobsVal').textContent = jobs + (jobs === 1 ? ' job / mo' : ' jobs / mo');
+      var monthly = ticket * jobs;
+      var annual = monthly * 12;
+      document.getElementById('roiMonthlyRev').textContent = '$' + monthly.toLocaleString() + ' / mo';
+      document.getElementById('roiAnnualRev').textContent = '$' + annual.toLocaleString() + ' / yr';
+    }
+    document.getElementById('roiTicketSlider').addEventListener('input', updatePitchRoi);
+    document.getElementById('roiJobsSlider').addEventListener('input', updatePitchRoi);
+
+    document.getElementById('copyLlmsBtn').addEventListener('click', function() {
+      var text = document.getElementById('llmsTxtBlock').textContent;
+      try {
+        var ta = document.createElement('textarea');
+        ta.value = text;
+        document.body.appendChild(ta);
+        ta.select();
+        document.execCommand('copy');
+        document.body.removeChild(ta);
+      } catch (e) {}
+      showToast('Copied /llms.txt!', 'This file is built into your new website so ChatGPT, Siri, and Google AI recommend Mark Westfall Roofing first.');
+    });
+
+    // 24/7 AI Roof Bot Drawer
+    var aiDrawer = document.getElementById('aiBotDrawer');
+    document.getElementById('openAiBotBtn').addEventListener('click', function() {
+      aiDrawer.classList.toggle('hidden');
+    });
+    document.querySelectorAll('.open-ai-trigger').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        aiDrawer.classList.remove('hidden');
+      });
+    });
+    document.getElementById('closeAiBotBtn').addEventListener('click', function() {
+      aiDrawer.classList.add('hidden');
+    });
+
+    function answerAiQuestion(q) {
+      var box = document.getElementById('aiChatMessages');
+      var userBubble = document.createElement('div');
+      userBubble.className = 'bg-emerald-600 text-white p-2.5 rounded-xl ml-8 text-right';
+      userBubble.textContent = q;
+      box.appendChild(userBubble);
+
+      var lower = q.toLowerCase();
+      var reply = "Great question! Mark Westfall (3rd-generation owner, CA License #C-39 716228) personally inspects every roof in San Pedro and the South Bay. Would you like me to text Mark your address for a free estimate?";
+      if (lower.indexOf('cost') !== -1 || lower.indexOf('price') !== -1 || lower.indexOf('much') !== -1) {
+        reply = "For a typical South Bay home (1,800–2,400 sq ft), architectural composition shingles usually range from $12,500–$17,500, while Spanish clay or Eagle concrete tile ranges from $19,000–$28,000+. You can test our live calculator on Concept 2 or share your address for a free written estimate!";
+      } else if (lower.indexOf('solar') !== -1) {
+        reply = "Yes! Unlike many roofers who make you hire a separate solar company, Mark Westfall Roofing handles Solar Panel Removal & Reinstallation (R&R), dry rot repair, skylights, and gutters all under one roof.";
+      } else if (lower.indexOf('install') !== -1 || lower.indexOf('who') !== -1) {
+        reply = "Our family promise: A Westfall personally installs every roof or handles each repair. Our family has served Harbor City, San Pedro, and the South Bay since Carl Westfall founded the company in 1946.";
+      }
+
+      setTimeout(function() {
+        var botBubble = document.createElement('div');
+        botBubble.className = 'bg-white p-3 rounded-xl border border-slate-200 shadow-sm text-slate-800 mr-4';
+        botBubble.textContent = reply;
+        box.appendChild(botBubble);
+        box.scrollTop = box.scrollHeight;
+      }, 250);
+    }
+
+    document.querySelectorAll('.ai-quick-btn').forEach(function(btn) {
+      btn.addEventListener('click', function() {
+        answerAiQuestion(btn.getAttribute('data-ai-q'));
+      });
+    });
+
+    document.getElementById('aiChatForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      var input = document.getElementById('aiChatInput');
+      if (!input.value.trim()) return;
+      answerAiQuestion(input.value.trim());
+      input.value = '';
+    });
+  </script>
+</body>
+</html>
